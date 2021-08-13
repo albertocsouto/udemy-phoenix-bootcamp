@@ -130,7 +130,8 @@ header nav a {
   display: none; }
 
 .invalid-feedback {
-  color: #a94442;
+  color: red;
   display: block;
-  margin: -1rem 0 2rem; }
+  margin: 0.5rem 0 2rem; 
+  text-transform: capitalize;}
 
