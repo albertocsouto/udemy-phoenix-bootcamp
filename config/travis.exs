@@ -11,7 +11,7 @@ config :discuss, Discuss.Repo,
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :test_api, TestApiWeb.Endpoint,
+config :discuss, DiscussWeb.Endpoint,
   http: [port: 4002],
   server: false
 
