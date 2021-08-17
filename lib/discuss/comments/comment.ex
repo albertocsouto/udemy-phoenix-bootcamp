@@ -1,24 +1,28 @@
-defmodule Discuss.Topic do
+defmodule Discuss.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
   alias Discuss.User
-  alias Discuss.Comment
+  alias Discuss.Topic
 
-  schema "topics" do
-    field(:title, :string)
+  @derive {Jason.Encoder, only: [:content, :user]}
+
+  schema "comments" do
+    field(:content, :string)
     belongs_to(:user, User)
-    has_many(:comments, Comment)
+    belongs_to(:topic, Topic)
+
+    timestamps()
   end
 
   @doc false
   def changeset(topic, attrs \\ %{}) do
     topic
     |> cast(attrs, [
-      :title
+      :content
     ])
     |> validate_required([
-      :title
+      :content
     ])
   end
 end

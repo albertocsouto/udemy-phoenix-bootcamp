@@ -3,12 +3,16 @@ defmodule Discuss.User do
   import Ecto.Changeset
 
   alias Discuss.Topic
+  alias Discuss.Comment
+
+  @derive {Jason.Encoder, only: [:email]}
 
   schema "users" do
     field(:email, :string)
     field(:provider, :string)
     field(:token, :string)
     has_many(:topics, Topic)
+    has_many(:comment, Comments)
 
     timestamps()
   end
