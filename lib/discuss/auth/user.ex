@@ -1,9 +1,9 @@
-defmodule Discuss.User do
+defmodule Discuss.Auth.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Discuss.Topic
-  alias Discuss.Comment
+  alias Discuss.Discussions.Topic
+  alias Discuss.Discussions.Comment
 
   @derive {Jason.Encoder, only: [:email]}
 
@@ -12,7 +12,7 @@ defmodule Discuss.User do
     field(:provider, :string)
     field(:token, :string)
     has_many(:topics, Topic)
-    has_many(:comment, Comments)
+    has_many(:comment, Comment)
 
     timestamps()
   end

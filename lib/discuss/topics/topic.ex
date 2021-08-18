@@ -1,9 +1,9 @@
-defmodule Discuss.Topic do
+defmodule Discuss.Discussions.Topic do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Discuss.User
-  alias Discuss.Comment
+  alias Discuss.Auth.User
+  alias Discuss.Discussions.Comment
 
   schema "topics" do
     field(:title, :string)

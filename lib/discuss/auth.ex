@@ -1,6 +1,6 @@
 defmodule Discuss.Auth do
   alias Discuss.Repo
-  alias Discuss.User
+  alias Discuss.Auth.User
 
   def signin(auth) do
     user_params = %{token: auth.credentials.token, email: auth.info.email, provider: "github"}

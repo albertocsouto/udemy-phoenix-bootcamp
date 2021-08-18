@@ -1,9 +1,9 @@
-defmodule Discuss.Comment do
+defmodule Discuss.Discussions.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Discuss.User
-  alias Discuss.Topic
+  alias Discuss.Auth.User
+  alias Discuss.Discussions.Topic
 
   @derive {Jason.Encoder, only: [:content, :user]}
 

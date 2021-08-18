@@ -1,6 +1,6 @@
 defmodule Discuss.Discussions do
   alias Discuss.Repo
-  alias Discuss.Topic
+  alias Discuss.Discussions.Topic
 
   def get_all_topics() do
     Repo.all(Topic)
