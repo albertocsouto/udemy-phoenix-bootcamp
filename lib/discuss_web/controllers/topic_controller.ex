@@ -3,8 +3,8 @@ defmodule DiscussWeb.TopicController do
 
   alias Discuss.Discussions
 
-  plug DiscussWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
-  plug :check_topic_owner when action in [:update, :delete]
+  plug(DiscussWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete])
+  plug(:check_topic_owner when action in [:update, :delete])
 
   def index(conn, _params) do
     topics = Discussions.get_all_topics()
@@ -27,6 +27,7 @@ defmodule DiscussWeb.TopicController do
         conn
         |> put_flash(:info, "Topic Created")
         |> redirect(to: Routes.topic_path(conn, :index))
+
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -43,6 +44,7 @@ defmodule DiscussWeb.TopicController do
         conn
         |> put_flash(:info, "Topic Updated")
         |> redirect(to: Routes.topic_path(conn, :index))
+
       {:error, changeset, old_topic} ->
         render(conn, "edit.html", changeset: changeset, topic: old_topic)
     end
@@ -68,5 +70,4 @@ defmodule DiscussWeb.TopicController do
       |> halt()
     end
   end
-
 end

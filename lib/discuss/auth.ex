@@ -1,5 +1,4 @@
 defmodule Discuss.Auth do
-
   alias Discuss.Repo
   alias Discuss.User
 
@@ -10,6 +9,7 @@ defmodule Discuss.Auth do
     case Repo.get_by(User, email: changeset.changes.email) do
       nil ->
         Repo.insert(changeset)
+
       user ->
         {:ok, user}
     end
