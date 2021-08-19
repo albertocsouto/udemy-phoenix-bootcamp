@@ -74,3 +74,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+if System.get_env("CI") == nil, do: import_config("dev.secret.exs")
